@@ -1,0 +1,9 @@
+.favorites {
+  padding: 0 20px;
+}
+
+.item {
+  line-height: 45px;
+  font-size: 16px;
+  color: #333;
+}

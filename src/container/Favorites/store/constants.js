@@ -1,0 +1,1 @@
+export const CHANGE_FAVORITESLIST_LIST = 'change_favorites_list'
