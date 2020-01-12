@@ -6,9 +6,10 @@ const mime = require("mime");
 const cookieParser = require("cookie-parser");
 const newsList = require('./data/newsList');
 const favoritesList = require('./data/favoritesList');
+const config = require('../config')
 
 const app = express();
-const domain = 'http://192.168.2.220'
+const domain = config.domain
 
 //设置跨域访问
 app.all('*', function(req, res, next) {
@@ -136,5 +137,5 @@ app.get('/api/logout', function (req, res) {
 
 
 app.listen(80, () => {
-  console.log('192.168.2.220:80')
+  console.log(domain)
 });

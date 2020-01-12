@@ -2,7 +2,7 @@ import axios from 'axios'
 import config from '../../config'
 
 const createServerRequest = (req) => axios.create({
-  baseURL: 'http://192.168.2.220/',
+  baseURL: config.domain,
   headers: {
     cookie: req.get('cookie') || ''
   },

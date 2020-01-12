@@ -4,6 +4,7 @@ import proxy from 'http-proxy-middleware'
 import { getStore } from '../store'
 import routes from '../Routes'
 import { render } from './utils'
+import config from '../../config'
 
 const app = express()
 
@@ -12,7 +13,7 @@ app.use(express.static('public'))
 app.use(
   '/api',
   proxy({
-    target: 'http://192.168.2.220',
+    target: config.domain,
     changeOrigin: true
   })
 )

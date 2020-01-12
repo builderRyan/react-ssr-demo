@@ -4,11 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "npm-run-all --parallel dev:**",
+    "dev": "concurrently \"npm run mock\" \"npm-run-all --parallel dev:**\"",
     "dev:start": "nodemon --watch build --exec node \"./build/bundle.js\"",
     "dev:build:server": "webpack --config webpack.server.js --watch",
     "dev:build:client": "webpack --config webpack.client.js --watch",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "mock": "node \"./mockData/server.js\""
   },
   "author": "",
   "license": "ISC",
@@ -19,12 +20,16 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
+    "concurrently": "^5.0.2",
     "cookie-parser": "^1.4.4",
+    "cz-emoji": "^1.1.2",
     "express": "^4.17.1",
     "express-http-proxy": "^1.6.0",
     "formidable": "^1.2.1",
     "http-proxy-middleware": "^0.20.0",
     "mime": "^2.4.4",
+    "nodemon": "^2.0.2",
+    "npm-run-all": "^4.1.5",
     "react": "^16.8.6",
     "react-dom": "^16.9.0",
     "react-helmet": "^5.2.1",
@@ -39,17 +44,115 @@
     "webpack-node-externals": "^1.7.2"
   },
   "devDependencies": {
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "commitizen": "^4.0.3",
     "css-loader": "^3.4.1",
-    "cz-conventional-changelog": "^3.0.2",
     "isomorphic-style-loader": "^5.1.0",
     "sass-loader": "^8.0.1",
     "style-loader": "^1.1.2"
   },
   "config": {
+    "cz-emoji": {
+      "types": [
+        {
+          "emoji": "✨",
+          "code": "✨",
+          "description": "Introducing new features.",
+          "name": "feature"
+        },
+        {
+          "emoji": "🐛",
+          "code": "🐛",
+          "description": "Fixing a bug.",
+          "name": "fix"
+        },
+        {
+          "emoji": "💄",
+          "code": "💄",
+          "description": "Updating the UI and style files.",
+          "name": "ui"
+        },
+        {
+          "emoji": "⚡️",
+          "code": ":zap:",
+          "description": "Improving performance.",
+          "name": "perf"
+        },
+        {
+          "emoji": "📝",
+          "code": "📝",
+          "description": "Writing docs.",
+          "name": "docs"
+        },
+        {
+          "emoji": "♻️ ",
+          "code": "♻️",
+          "description": "Refactoring code.",
+          "name": "refactor"
+        },
+        {
+          "emoji": "✏️ ",
+          "code": "✏️",
+          "description": "A chore change.",
+          "name": "chore"
+        },
+        {
+          "emoji": "🔧",
+          "code": "🔧",
+          "description": "Changing configuration files.",
+          "name": "config"
+        },
+        {
+          "emoji": "⚙️ ",
+          "code": "⚙️ ",
+          "description": "Changing configuration ci.",
+          "name": "ci"
+        },
+        {
+          "emoji": "🔥",
+          "code": "🔥",
+          "description": "Removing code or files.",
+          "name": "prune"
+        },
+        {
+          "emoji": "🔖",
+          "code": "🔖",
+          "description": "Releasing / Version tags.",
+          "name": "release"
+        },
+        {
+          "emoji": "👷",
+          "code": "👷",
+          "description": "Adding CI build system.",
+          "name": "ci"
+        },
+        {
+          "emoji": "➕",
+          "code": "➕",
+          "description": "Adding a dependency.",
+          "name": "dep-add"
+        },
+        {
+          "emoji": "💩",
+          "code": "💩",
+          "description": "Writing bad code that needs to be improved.",
+          "name": "poo"
+        },
+        {
+          "emoji": "🚚",
+          "code": "🚚",
+          "description": "Moving or renaming files.",
+          "name": "mv"
+        },
+        {
+          "emoji": "🙈",
+          "entity": "🙈",
+          "code": ":see_no_evil:",
+          "description": "Adding or updating a .gitignore file",
+          "name": "see-no-evil"
+        }
+      ]
+    },
     "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
+      "path": "./node_modules/cz-emoji"
     }
   }
 }

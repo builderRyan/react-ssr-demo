@@ -26,19 +26,10 @@ npm install
 
 ## Start
 
-1.Start data service
-
-```
-cd mockData
-node server.js
-```
-
-2.Running
-
-```
-npm run dev
+```shell
+yarn dev
 
 # or
 
-yarn dev
+npm run dev
 ```
