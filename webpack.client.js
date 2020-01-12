@@ -12,7 +12,7 @@ const clientConfig = {
   module: {
     rules: [
       {
-        test: /\.css?$/,
+        test: /\.(css|scss)$/,
         use: [
           'style-loader',
           {
@@ -23,7 +23,9 @@ const clientConfig = {
                 localIdentName: '[name]_[local]_[hash:base64:5]'
               }
             }
-          }
+          },
+          "sass-loader",
+          "postcss-loader"
         ]
       }
     ]

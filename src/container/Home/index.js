@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { Helmet } from 'react-helmet'
 import { getNewsList } from './store/actions'
 import withStyle from '../../hoc/withStyle'
-import style from './style/Home.css' 
+import style from './style/Home.scss' 
 
 class Home extends Component {
 
@@ -37,9 +37,10 @@ class Home extends Component {
         </Helmet>
         {this.renderList()}
         <button
+          className={style.start}
           onClick={() => {alert(2019)}}
         >
-          click
+          Get Start
         </button>
       </div>
     )

@@ -1,9 +1,10 @@
 import React, { Component, Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { headerActions } from './store/'
+import { headerActions } from './store'
 import withStyle from '../../hoc/withStyle'
-import style from './style/Header.css'
+import style from './style/Header.scss'
+import avatar from './img/avatar.png'
 
 class Header extends Component {
 
@@ -12,17 +13,19 @@ class Header extends Component {
   
     return (
       <div className={style.header}>
-        <Link to='/' className={style['nav-item']}>首页</Link>
-        {
-          login
-          ? (
-            <Fragment>
-              <Link to='/favorites' className={style['nav-item']}>收藏列表</Link>
-              <a className={style['nav-item']} onClick={handleLogout}>退出</a>
-            </Fragment>
-          )
-          : <a className={style['nav-item']} onClick={handleLogin}>登录</a>
-        }
+        
+        <div className={style['nav-left']}>
+          <Link to='/' className={style['nav-item']}>首页</Link>
+          {login && <Link to='/favorites' className={style['nav-item']}>我的收藏</Link>}
+        </div>
+        <div className={style['nav-right']}>
+          {
+            login
+            ? <a className={style['nav-item']} onClick={handleLogout}>退出</a>
+            : <a className={style['nav-item']} onClick={handleLogin}>登录</a>
+          }
+          <img className={style.avatar} src={avatar} alt='avatar' />
+        </div>
       </div>
     )
   }

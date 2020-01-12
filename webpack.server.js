@@ -15,7 +15,7 @@ const serverConfig = {
   module: {
     rules: [
       {
-        test: /\.css?$/,
+        test: /\.(css|scss)?$/,
         use: [
           'isomorphic-style-loader',
           {
@@ -26,7 +26,9 @@ const serverConfig = {
                 localIdentName: '[name]_[local]_[hash:base64:5]'
               }
             }
-          }
+          },
+          "sass-loader",
+          "postcss-loader"
         ]
       }
     ]

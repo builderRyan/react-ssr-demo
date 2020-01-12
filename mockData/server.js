@@ -80,7 +80,7 @@ app.get('/api/getNewsList', function (req, res) {
   res.end()
 });
 
-// 获取喜欢列表
+// 获取收藏列表
 app.get('/api/getFavoritesList', function (req, res) {
   // 如果登陆了, 返回列表数据给客户端, 否则返回空列表
   console.log('login', req.cookies.login)

@@ -1,0 +1,36 @@
+.header {
+  position: fixed;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-between;
+  width: 1200px;
+  height: 60px;
+  line-height: 60px;
+  background: #fff;
+  margin: 0 auto;
+}
+
+.nav-left {
+
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.nav-item {
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+  text-decoration: none;
+  margin-right: 20px;
+}
+
+.avatar {
+  width: 45px;
+  height: 45px;
+  background: url('../img/avatar.png') center/cover;
+}

@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
 import { getFavoritesList } from './store/actions'
-import style from './style/Favorites.css'
+import style from './style/Favorites.scss'
 
 class Favorites extends Component {
   componentDidMount () {

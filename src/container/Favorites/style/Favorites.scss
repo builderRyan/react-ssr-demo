@@ -1,0 +1,22 @@
+.favorites {
+  width: 1200px;
+  margin: 80px auto 0;
+}
+
+.item {
+  line-height: 120px;
+  font-size: 16px;
+  color: #333;
+
+  border-radius: 8px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,.06), 0 0 2px 0 rgba(10,22,70,.06);
+  background-color: #fff;
+  transition: box-shadow .3s;
+  padding: 0 15px;
+  margin: 20px auto;
+}
+
+
+.item:hover {
+  box-shadow: 0 16px 16px -1px rgba(10,22,70,.1), 0 0 2px 0 rgba(10,22,70,.06);
+}

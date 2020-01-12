@@ -2,7 +2,7 @@ import { createStore, applyMiddleware, combineReducers } from 'redux'
 import thunk from 'redux-thunk'
 import clientRequest from '../client/request'
 import createServerRequest from '../server/createServerRequest'
-import { headerReducer } from '../component/Header/store'
+import { headerReducer } from '../components/Header/store'
 import { homeReducer } from '../container/Home/store'
 import { favoritesReducer } from '../container/Favorites/store'
 

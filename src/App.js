@@ -1,7 +1,7 @@
 import React from 'react'
 import { renderRoutes }  from 'react-router-config'
-import { Header } from './component'
-import { headerActions } from './component/Header/store/'
+import { Header } from './components'
+import { headerActions } from './components/Header/store/'
 
 const App = props => {
   // console.log(props)
