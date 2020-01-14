@@ -9,6 +9,13 @@
   dependencies:
     regenerator-runtime "^0.13.2"
 
+"@babel/runtime@^7.3.4":
+  version "7.8.3"
+  resolved "https://registry.npm.taobao.org/@babel/runtime/download/@babel/runtime-7.8.3.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40babel%2Fruntime%2Fdownload%2F%40babel%2Fruntime-7.8.3.tgz#0811944f73a6c926bb2ad35e918dcc1bfab279f1"
+  integrity sha1-CBGUT3OmySa7KtNekY3MG/qyefE=
+  dependencies:
+    regenerator-runtime "^0.13.2"
+
 "@babel/runtime@^7.5.5":
   version "7.8.0"
   resolved "https://registry.npmjs.org/@babel/runtime/-/runtime-7.8.0.tgz#8c81711517c56b3d00c6de706b0fb13dc3531549"
@@ -5005,10 +5012,21 @@ react-dom@^16.9.0:
     prop-types "^15.6.2"
     scheduler "^0.15.0"
 
-react-fast-compare@^2.0.2:
+react-fast-compare@^2.0.2, react-fast-compare@^2.0.4:
   version "2.0.4"
   resolved "https://registry.npmjs.org/react-fast-compare/-/react-fast-compare-2.0.4.tgz#e84b4d455b0fec113e0402c329352715196f81f9"
   integrity sha512-suNP+J1VU1MWFKcyt7RtjiSWUjvidmQSlqu+eHslq+342xCbGTYmC0mEhPCOHxlW0CywylOC1u2DFAT+bv4dBw==
+
+react-helmet-async@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.npm.taobao.org/react-helmet-async/download/react-helmet-async-1.0.4.tgz#079ef10b7fefcaee6240fefd150711e62463cc97"
+  integrity sha1-B57xC3/vyu5iQP79FQcR5iRjzJc=
+  dependencies:
+    "@babel/runtime" "^7.3.4"
+    invariant "^2.2.4"
+    prop-types "^15.7.2"
+    react-fast-compare "^2.0.4"
+    shallowequal "^1.1.0"
 
 react-helmet@^5.2.1:
   version "5.2.1"
@@ -5083,31 +5101,19 @@ react-router@5.1.2:
     tiny-invariant "^1.0.2"
     tiny-warning "^1.0.0"
 
-react-side-effect@^1.1.0:
-  version "1.2.0"
-  resolved "https://registry.npmjs.org/react-side-effect/-/react-side-effect-1.2.0.tgz#0e940c78faba0c73b9b0eba9cd3dda8dfb7e7dae"
-  integrity sha512-v1ht1aHg5k/thv56DRcjw+WtojuuDHFUgGfc+bFHOWsF4ZK6C2V57DO0Or0GPsg6+LSTE0M6Ry/gfzhzSwbc5w==
-  dependencies:
-    shallowequal "^1.0.1"
+react-side-effect@2.1.0, react-side-effect@^1.1.0:
+  version "2.1.0"
+  resolved "https://registry.npm.taobao.org/react-side-effect/download/react-side-effect-2.1.0.tgz#1ce4a8b4445168c487ed24dab886421f74d380d3"
+  integrity sha1-HOSotERRaMSH7STauIZCH3TTgNM=
 
-react@^16.3.0:
+react@^16.3.0, react@^16.4.1:
   version "16.12.0"
-  resolved "https://registry.npmjs.org/react/-/react-16.12.0.tgz#0c0a9c6a142429e3614834d5a778e18aa78a0b83"
-  integrity sha512-fglqy3k5E+81pA8s+7K0/T3DBCF0ZDOher1elBFzF7O6arXJgzyu/FW+COxFvAWXJoJN9KIZbT2LXlukwphYTA==
+  resolved "https://registry.npm.taobao.org/react/download/react-16.12.0.tgz?cache=0&sync_timestamp=1576681172403&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Freact%2Fdownload%2Freact-16.12.0.tgz#0c0a9c6a142429e3614834d5a778e18aa78a0b83"
+  integrity sha1-DAqcahQkKeNhSDTVp3jhiqeKC4M=
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
     prop-types "^15.6.2"
-
-react@^16.8.6:
-  version "16.8.6"
-  resolved "https://registry.npm.taobao.org/react/download/react-16.8.6.tgz#ad6c3a9614fd3a4e9ef51117f54d888da01f2bbe"
-  integrity sha1-rWw6lhT9Ok6e9REX9U2IjaAfK74=
-  dependencies:
-    loose-envify "^1.1.0"
-    object-assign "^4.1.1"
-    prop-types "^15.6.2"
-    scheduler "^0.13.6"
 
 read-pkg-up@^1.0.1:
   version "1.0.1"
@@ -5500,14 +5506,6 @@ sax@^1.2.4:
   resolved "https://registry.npm.taobao.org/sax/download/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
   integrity sha1-KBYjTiN4vdxOU1T6tcqold9xANk=
 
-scheduler@^0.13.6:
-  version "0.13.6"
-  resolved "https://registry.npm.taobao.org/scheduler/download/scheduler-0.13.6.tgz#466a4ec332467b31a91b9bf74e5347072e4cd889"
-  integrity sha1-RmpOwzJGezGpG5v3TlNHBy5M2Ik=
-  dependencies:
-    loose-envify "^1.1.0"
-    object-assign "^4.1.1"
-
 scheduler@^0.15.0:
   version "0.15.0"
   resolved "https://registry.npm.taobao.org/scheduler/download/scheduler-0.15.0.tgz#6bfcf80ff850b280fed4aeecc6513bc0b4f17f8e"
@@ -5647,10 +5645,10 @@ shallow-clone@^3.0.0:
   dependencies:
     kind-of "^6.0.2"
 
-shallowequal@^1.0.1:
+shallowequal@^1.1.0:
   version "1.1.0"
-  resolved "https://registry.npmjs.org/shallowequal/-/shallowequal-1.1.0.tgz#188d521de95b9087404fd4dcb68b13df0ae4e7f8"
-  integrity sha512-y0m1JoUZSlPAjXVtPPW70aZWfIL/dSP7AFkRnniLCrK/8MDKog3TySTBmckD+RObVxH0v4Tox67+F14PdED2oQ==
+  resolved "https://registry.npm.taobao.org/shallowequal/download/shallowequal-1.1.0.tgz#188d521de95b9087404fd4dcb68b13df0ae4e7f8"
+  integrity sha1-GI1SHelbkIdAT9TctosT3wrk5/g=
 
 shebang-command@^1.2.0:
   version "1.2.0"

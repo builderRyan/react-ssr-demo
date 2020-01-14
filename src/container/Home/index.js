@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { Helmet } from 'react-helmet'
-import { getNewsList } from './store/actions'
+import { Helmet } from 'react-helmet-async'
+import { getArticles } from './store/actions'
 import withStyle from '../../hoc/withStyle'
 import style from './style/Home.scss' 
 
@@ -16,13 +17,16 @@ class Home extends Component {
   renderList () {
     const { list } = this.props
     return list.map((item) => {
+      const { id, title } = item
+
       return (
-        <p
-          key={item.id}
+        <Link
+          key={id}
           className={style.item}
+          to={`/article/${id}`}
         >
-          {item.title}
-        </p>
+          {title}
+        </Link>
       )
     })
   }
@@ -57,7 +61,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     getList () {
-      dispatch(getNewsList())
+      dispatch(getArticles())
     }
   }
 }
@@ -66,7 +70,7 @@ const DecoratedHome = connect(mapStateToProps, mapDispatchToProps)(withStyle(Hom
 
 DecoratedHome.loadData = (store) => {
   // 这个函数负责在服务器端渲染之前，把这个路由需要的数据提前加载好
-  return store.dispatch(getNewsList())
+  return store.dispatch(getArticles())
 }
 
 export default DecoratedHome

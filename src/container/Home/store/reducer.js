@@ -1,7 +1,7 @@
 import { CHANGE_NEWS_LIST } from './constants'
 
 const defaultState = {
-  name: 'abc',
+  name: 'builderRyan',
   newsList: []
 }
 

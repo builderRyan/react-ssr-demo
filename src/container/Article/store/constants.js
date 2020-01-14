@@ -1,0 +1,2 @@
+export const UPDATE_ARTICLE= 'UPDATE_ARTICLE'
+export const CLEAR_ARTICLE= 'CLEAR_ARTICLE'

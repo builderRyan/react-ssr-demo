@@ -1,8 +1,11 @@
 const { getIPAdress } = require('./utils')
 
 const ip = getIPAdress()
+const port = 86
+const url = `http://${ip}:${port}`
 
 module.exports = {
-  domain: `http://${ip}`,
+  port,
+  url,
   secret: 'ssr_2020'
 }

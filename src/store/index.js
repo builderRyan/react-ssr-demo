@@ -5,11 +5,13 @@ import createServerRequest from '../server/createServerRequest'
 import { headerReducer } from '../components/Header/store'
 import { homeReducer } from '../container/Home/store'
 import { favoritesReducer } from '../container/Favorites/store'
+import { articleReducer } from '../container/Article/store'
 
 const reducer = combineReducers({
   home: homeReducer,
   header: headerReducer,
-  favorites: favoritesReducer
+  favorites: favoritesReducer,
+  article: articleReducer
 })
 
 // 单例的 store

@@ -1,26 +1,26 @@
 import React from 'react'
 import { renderToString } from 'react-dom/server'
-import { StaticRouter, Route } from 'react-router-dom'
+import { StaticRouter } from 'react-router-dom'
 import { renderRoutes } from 'react-router-config'
 import { Provider } from 'react-redux'
-import { Helmet } from 'react-helmet'
+import { HelmetProvider } from 'react-helmet-async'
 
 export const render = ({store, routes, req, context}) => {
+  const helmetContext = {}
   const content = renderToString(
-    <Provider store={store}>
-      <StaticRouter location={req.path} context={context}>
-        <div>
-          {/* 只能使用在一级路由的情况 */}
-          {/* {routes.map((route) => (
-            <Route {...route} />
-          ))} */}
-          {renderRoutes(routes)}
-        </div>
-      </StaticRouter>
-    </Provider>
+    <HelmetProvider context={helmetContext}>
+      <Provider store={store}>
+        <StaticRouter location={req.path} context={context}>
+          <div>
+            {renderRoutes(routes)}
+          </div>
+        </StaticRouter>
+      </Provider>
+    </HelmetProvider>
   )
 
-  const helmet = Helmet.renderStatic()
+  // const helmet = Helmet.renderStatic()
+  const { helmet } = helmetContext;
 
   const stylesStr = context.styles && context.styles.join('\n') ||''
 
@@ -30,13 +30,14 @@ export const render = ({store, routes, req, context}) => {
       ${helmet.title.toString()}
       ${helmet.meta.toString()}
       ${helmet.link.toString()}
+      <meta name="referrer" content="no-referrer">
       <style>
         ${stylesStr}
       </style>
     </head>
     <body>
       <div id='root'>
-        <h1>${content}</h1>
+        ${content}
       </div>
       <script>
         window.context = {

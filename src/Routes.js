@@ -4,6 +4,7 @@ import App from './App'
 import Home from './container/Home'
 import Login from './container/Login'
 import Favorites from './container/Favorites'
+import Article from './container/Article'
 import NotFound from './container/404'
 
 // const Routers = (
@@ -42,6 +43,13 @@ export default [
         exact: true,
         loadData: Favorites.loadData,
         key: 'favorites'
+      },
+      {
+        path: '/article/:id',
+        component: Article,
+        exact: true,
+        loadData: Article.loadData,
+        key: 'article'
       },
       {
         component: NotFound

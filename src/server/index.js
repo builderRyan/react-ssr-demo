@@ -13,7 +13,7 @@ app.use(express.static('public'))
 app.use(
   '/api',
   proxy({
-    target: config.domain,
+    target: config.url,
     changeOrigin: true
   })
 )
@@ -39,7 +39,7 @@ app.get('*', (req, res) => {
   matchedRoutes.forEach((item) => {
     if (item.route.loadData) {
       const promise = new Promise((resolve, reject) => {
-        item.route.loadData(store).then(resolve).catch(resolve)
+        item.route.loadData(store, req).then(resolve).catch(resolve)
       })
       promises.push(promise)
     }

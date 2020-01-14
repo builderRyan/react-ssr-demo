@@ -7,7 +7,9 @@ const clientConfig = {
   entry: './src/client/index.js',
   output: {
     filename: 'index.js',
-    path: path.resolve(__dirname, 'public')
+    path: path.resolve(__dirname, 'public'),
+    hotUpdateChunkFilename: 'hot/hot-update.js',
+    hotUpdateMainFilename: 'hot/hot-update.json'
   },
   module: {
     rules: [

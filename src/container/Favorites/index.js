@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
-import { Helmet } from 'react-helmet'
+import { Helmet } from 'react-helmet-async'
 import { getFavoritesList } from './store/actions'
+import withStyle from '../../hoc/withStyle'
 import style from './style/Favorites.scss'
 
 class Favorites extends Component {
@@ -55,7 +56,7 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-const DecoratedFavorites = connect(mapStateToProps, mapDispatchToProps)(Favorites)
+const DecoratedFavorites = connect(mapStateToProps, mapDispatchToProps)(withStyle(Favorites, style))
 
 DecoratedFavorites.loadData = (store) => {
   // 这个函数负责在服务器端渲染之前，把这个路由需要的数据提前加载好

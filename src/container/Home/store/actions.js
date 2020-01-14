@@ -7,9 +7,9 @@ const createGetListAction = (list) => {
   }
 }
 
-export const getNewsList = () => {
+export const getArticles = () => {
   return (dispatch, getState, request) => {
-    return request.get('/api/getNewsList').then((res) => {
+    return request.get('/api/getArticles').then((res) => {
       const list = res.data.data
       dispatch(createGetListAction(list))
     })

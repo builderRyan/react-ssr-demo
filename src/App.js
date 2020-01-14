@@ -4,8 +4,6 @@ import { Header } from './components'
 import { headerActions } from './components/Header/store/'
 
 const App = props => {
-  // console.log(props)
-
   return (
     <div>
       <Header staticContext={props.staticContext} />

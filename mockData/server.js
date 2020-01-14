@@ -4,16 +4,17 @@ const fs = require("fs");
 const path = require("path");
 const mime = require("mime");
 const cookieParser = require("cookie-parser");
-const newsList = require('./data/newsList');
+const articlesList = require('./data/articlesList');
 const favoritesList = require('./data/favoritesList');
 const config = require('../config')
 
-const app = express();
-const domain = config.domain
+const app = express()
+const port = config.port
+const url = config.url
 
 //设置跨域访问
 app.all('*', function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", domain);
+  res.header("Access-Control-Allow-Origin", url);
   // res.header("Access-Control-Allow-Headers", "x-requested-with");
   res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
   res.header('Access-Control-Allow-Credentials','true');
@@ -28,11 +29,6 @@ app.all('*', function(req, res, next) {
 });
 
 app.use(cookieParser())
-
-// 默认路由
-app.get('/', function (req, res) {
-  res.send('Hello World!');
-});
 
 // 处理静态资源
 app.use('/public', express.static('../../public'));
@@ -60,7 +56,7 @@ app.post('/upload', function (req, res) {
     res.send({
       ret: 0,
       data: {
-        url: `${domain}/public/img/${filename}`
+        url: `${url}/public/img/${filename}`
       }
     })
 
@@ -69,11 +65,31 @@ app.post('/upload', function (req, res) {
   });
 });
 
-// 获取新闻列表
-app.get('/api/getNewsList', function (req, res) {
+// 获取文章列表
+app.get('/api/getArticles', function (req, res) {
   res.send({
     ret: 0,
-    data: newsList,
+    data: articlesList,
+    msg: 'success'
+  })
+
+  res.end()
+});
+
+// 获取文章详情
+app.get('/api/getArticlesById', function (req, res) {
+  const id = req.query && req.query.id
+  let data = {}
+  if (id) {
+    const result = articlesList.filter((item) => {
+      return item.id === Number(id)
+    })
+    data = result[0]
+  }
+
+  res.send({
+    ret: 0,
+    data,
     msg: 'success'
   })
 
@@ -83,8 +99,7 @@ app.get('/api/getNewsList', function (req, res) {
 // 获取收藏列表
 app.get('/api/getFavoritesList', function (req, res) {
   // 如果登陆了, 返回列表数据给客户端, 否则返回空列表
-  console.log('login', req.cookies.login)
-  
+  // console.log('login', req.cookies.login)
   const data = req.cookies.login ? favoritesList : []
   const success =  req.cookies.login ? true : false
 
@@ -136,6 +151,6 @@ app.get('/api/logout', function (req, res) {
 });
 
 
-app.listen(80, () => {
-  console.log(domain)
+app.listen(port, () => {
+  console.log(url)
 });
